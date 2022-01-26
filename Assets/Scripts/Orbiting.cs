@@ -9,7 +9,7 @@ public class Orbiting : MonoBehaviour
 
     public float radius = 10;
 
-    [Range(0, 5)]
+    [Range(0, 3)]
     public float speed = 1;
 
     public float gameTimeS;
@@ -17,16 +17,16 @@ public class Orbiting : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        gameTimeS = Time.time;
+        gameTimeS = 0;
 
-        float x = radius * Mathf.Cos(gameTimeS * speed);
-        float z = radius * Mathf.Sin(gameTimeS * speed);
+        float x = radius * Mathf.Cos(speed * gameTimeS);
+        float z = radius * Mathf.Sin(speed * gameTimeS);
 
         transform.position = new Vector3(x, 0, z) + targetSP.position;
     }
