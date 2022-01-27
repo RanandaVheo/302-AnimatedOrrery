@@ -8,14 +8,14 @@ public class RotationPM : MonoBehaviour
     public float speedR;
 
     public float gameTimeR;
+    private float startingTilt;
 
-    private Vector3 startingTilt;
     public Vector3 rotationVec;
-
 
     // Start is called before the first frame update
     void Start()
     {
+        startingTilt = Random.Range(5, 15);
         transform.rotation *= Quaternion.Euler(rotationVec);
     }
 
@@ -23,7 +23,7 @@ public class RotationPM : MonoBehaviour
     void Update()
     {
         gameTimeR = Time.time;
-        rotationVec = new Vector3((speedR), Random.Range(5, 15), 0);
+        rotationVec = new Vector3((speedR), startingTilt, 0);
 
         transform.rotation *= Quaternion.Euler(rotationVec);
     }
