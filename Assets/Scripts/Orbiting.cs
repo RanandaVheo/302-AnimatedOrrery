@@ -7,7 +7,7 @@ public class Orbiting : MonoBehaviour
 {
     public Transform targetSP; //target star or planet to orbit
 
-    public int pathResolution = 32;
+    public int pathResolution = 86;
     public float radius = 10;
 
     private LineRenderer path;
@@ -16,6 +16,7 @@ public class Orbiting : MonoBehaviour
     public float speed = 1;
     
     public float gameTimeS;
+    public int timeOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -29,8 +30,8 @@ public class Orbiting : MonoBehaviour
     {
         gameTimeS = Time.time;
 
-        float x = radius * Mathf.Cos(speed * gameTimeS);
-        float z = radius * Mathf.Sin(speed * gameTimeS);
+        float x = radius * Mathf.Cos(speed * gameTimeS + timeOffset);
+        float z = radius * Mathf.Sin(speed * gameTimeS + timeOffset);
 
         transform.position = new Vector3(x, 0, z) + targetSP.position;
 
