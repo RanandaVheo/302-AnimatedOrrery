@@ -44,14 +44,14 @@ public static class AnimMath
         return rot;
     }
 
-    public static float Ease(float current, float target, float percentAfter1Sec, float dt = -1)
+    public static float FEase(float current, float target, float percentAfter1Sec, float dt = -1)
     {
         if (dt < 0) dt = Time.deltaTime;
         float p = 1 - Mathf.Pow(percentAfter1Sec, dt);
         return Lerp(current, target, p);
     }
 
-    public static Vector3 Ease(Vector3 current, Vector3 target, float percentAfter1Sec, float dt = -1)
+    public static Vector3 VEase(Vector3 current, Vector3 target, float percentAfter1Sec, float dt = -1)
     {
         if (dt < 0) dt = Time.deltaTime;
         float p = 1 - Mathf.Pow(percentAfter1Sec, dt);

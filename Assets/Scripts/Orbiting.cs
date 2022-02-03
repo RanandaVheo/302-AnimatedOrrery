@@ -16,7 +16,6 @@ public class Orbiting : MonoBehaviour
     public float speed = 1;
     
     public float gameTimeS;
-    public int timeOffset;
 
     // Start is called before the first frame update
     void Start()
@@ -30,8 +29,8 @@ public class Orbiting : MonoBehaviour
     {
         gameTimeS = Time.time;
 
-        float x = radius * Mathf.Cos(speed * gameTimeS + timeOffset);
-        float z = radius * Mathf.Sin(speed * gameTimeS + timeOffset);
+        float x = radius * Mathf.Cos(speed * gameTimeS);
+        float z = radius * Mathf.Sin(speed * gameTimeS);
 
         transform.position = new Vector3(x, 0, z) + targetSP.position;
 
